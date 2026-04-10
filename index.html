@@ -274,6 +274,18 @@
       opacity: 0.65;
     }
 
+    .hero-blob-left {
+      position: absolute;
+      left: -10%;
+      top: 5%;
+      width: 52%;
+      height: 85%;
+      background: rgba(255,255,255,0.45);
+      border-radius: 45% 55% 40% 60% / 55% 45% 60% 40%;
+      z-index: 1;
+      backdrop-filter: blur(2px);
+    }
+
     .hero-left {
       position: relative;
       z-index: 2;
@@ -1272,6 +1284,7 @@
   <!--  HERO  -->
   <section class="hero" id="hero" style="background-image: url('images/school/DSC06152.jpg'); background-position: 0% 24%; background-size: 131%;">
     <div class="hero-blob" aria-hidden="true"></div>
+    <div class="hero-blob-left" aria-hidden="true"></div>
     <div class="hero-left">
       <span class="hero-handwritten" data-en="¡Hola! — est. 2005 · Sucre, Bolivia" data-es="¡Hola! — desde 2005 · Sucre, Bolivia">¡Hola! — est. 2005 · Sucre, Bolivia</span>
       <h1 class="hero-title">
