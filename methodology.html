@@ -113,7 +113,6 @@
     /* PAGE HERO */
     .page-hero {
       padding: 10rem 4.5rem 7rem;
-      background: var(--bg-warm);
       position: relative;
       overflow: hidden;
       display: grid;
@@ -121,18 +120,41 @@
       gap: 6rem;
       align-items: center;
     }
-    .page-hero::before { content: ''; position: absolute; right: -8%; top: -10%; width: 50%; height: 120%; background: var(--terra-pale); border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; opacity: 0.55; z-index: 0; }
-    .page-hero-text { position: relative; z-index: 1; }
+    /* dark overlay over background image */
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(20, 12, 8, 0.52);
+      z-index: 0;
+      pointer-events: none;
+    }
+    /* frosted bubble behind text */
+    .page-hero-text {
+      position: relative;
+      z-index: 2;
+      background: rgba(250, 248, 244, 0.90);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 24px;
+      padding: 3rem 3rem 3rem;
+      box-shadow: 0 8px 40px rgba(20,12,8,0.18);
+    }
     .page-hero-handwritten { font-family: 'Caveat', cursive; font-size: 1.2rem; font-weight: 500; color: var(--terra); margin-bottom: 1rem; display: block; transform: rotate(-1deg); }
     .page-hero-title { font-family: 'Cormorant', serif; font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 300; line-height: 1.0; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 1.5rem; }
     .page-hero-title em { font-style: italic; color: var(--terra); }
     .page-hero-sub { font-size: 0.97rem; line-height: 1.85; color: var(--ink-soft); font-style: italic; max-width: 30rem; margin-bottom: 2rem; }
-    .page-hero-img { position: relative; z-index: 1; }
-    .polaroid { background: #fff; padding: 14px 14px 52px; box-shadow: var(--shadow-warm), 0 0 0 1px rgba(74,58,44,0.06); transform: rotate(2deg); transition: transform 0.4s ease; position: relative; }
+    .page-hero-img { position: relative; z-index: 1; display: flex; justify-content: center; }
+    /* polaroid slightly smaller to reveal background */
+    .polaroid { background: #fff; padding: 14px 14px 52px; box-shadow: var(--shadow-warm), 0 0 0 1px rgba(74,58,44,0.06); transform: rotate(2deg); transition: transform 0.4s ease; position: relative; width: 78%; }
     .polaroid:hover { transform: rotate(0.5deg) scale(1.015); }
     .polaroid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
     .polaroid-caption { position: absolute; bottom: 12px; left: 14px; right: 14px; text-align: center; font-family: 'Caveat', cursive; font-size: 1.05rem; font-weight: 500; color: var(--ink-soft); }
-    @media (max-width: 960px) { .page-hero { grid-template-columns: 1fr; padding: 8rem 1.5rem 4rem; gap: 3rem; } .page-hero::before { display: none; } }
+    @media (max-width: 960px) {
+      .page-hero { grid-template-columns: 1fr; padding: 8rem 1.5rem 4rem; gap: 3rem; }
+      .page-hero-text { padding: 2rem; }
+      .polaroid { width: 90%; }
+    }
 
     /* INTRO QUOTE */
     .intro-quote-section {
@@ -393,7 +415,7 @@
 </div>
 
   <!-- PAGE HERO -->
-  <section class="page-hero">
+  <section class="page-hero" style="background-image: url('images/school/DSC06813.webp'); background-position: 49% 72%; background-size: 109%;">
     <div class="page-hero-text reveal">
       <span class="page-hero-handwritten" data-en="17 years of learning what works" data-es="17 años aprendiendo lo que funciona">17 years of learning what works</span>
       <h1 class="page-hero-title">
